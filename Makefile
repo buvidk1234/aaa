@@ -1,5 +1,6 @@
 CC = gcc
 CFLAGS = -Iinclude
+LDFLAGS = -Llib -lexternal_library
 
 SRC_DIR = src
 BUILD_DIR = build
