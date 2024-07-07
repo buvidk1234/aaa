@@ -1,17 +1,22 @@
-CC=g++
-CFLAGS=-Iinclude
-LDFLAGS=
-SOURCES=$(wildcard src/*.cpp)
-OBJECTS=$(SOURCES:.cpp=.o)
-EXECUTABLE=bin/myapp
+CC = gcc
+CFLAGS = -Iinclude
 
-all: $(SOURCES) $(EXECUTABLE)
+SRC_DIR = src
+BUILD_DIR = build
+SRCS = $(wildcard $(SRC_DIR)/*.c)
+OBJS = $(SRCS:$(SRC_DIR)/%.c=$(BUILD_DIR)/%.o)
 
-$(EXECUTABLE): $(OBJECTS)
-    $(CC) $(LDFLAGS) $(OBJECTS) -o $@
+TARGET = $(BUILD_DIR)/my_project
 
-.cpp.o:
-    $(CC) $(CFLAGS) -c $< -o $@
+all: $(TARGET)
+
+$(TARGET): $(OBJS)
+	$(CC) -o $@ $^
+
+$(BUILD_DIR)/%.o: $(SRC_DIR)/%.c
+	$(CC) $(CFLAGS) -c -o $@ $<
 
 clean:
-    rm -f src/*.o bin/myapp
+	rm -f $(BUILD_DIR)/*.o $(TARGET)
+
+.PHONY: all clean
