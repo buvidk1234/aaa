@@ -7,6 +7,7 @@
 int main()
 {
     printf("Hello, World!\n");
+    printf("Hello, World!\n");
     module1_function();
     module2_function();
     initgraph(640,480,0);   // 创建绘图窗口，大小为 640x480 像素
