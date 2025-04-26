@@ -18,19 +18,22 @@
   
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script>
-    const url = 'http://localhost:5000'; 
+    const url = 'https://buvidk.oss-cn-beijing.aliyuncs.com/001.jpg'; 
     
-    const request = async () => {
+    // const request = async () => {
 
-        const response = await axios.get(url);
+    //     const response = await axios.get(url);
         
-        console.log(response.data);
+    //     console.log(response.data);
 
-        const img = document.querySelector('img');
-        img.src = response.data.imageUrl; 
-    }
+    //     const img = document.querySelector('img');
+    //     img.src = response.data.imageUrl; 
+    // }
+
+    const img = document.querySelector('img');
+      img.src = url; 
     
-    request();
+    // request();
   </script>
 </body>
 </html>
