@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>图片加载示例</title>
+  <style>
+    img {
+      width: 500px;
+      height: auto;
+      border: 5px solid skyblue;
+    }
+  </style>
+</head>
+<body>
+  <h3>一个图片</h3>
+  <img src="" alt="图片">
+  
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script>
+    const url = 'http://localhost:5000'; 
+    
+    const request = async () => {
+
+        const response = await axios.get(url);
+        
+        console.log(response.data);
+
+        const img = document.querySelector('img');
+        img.src = response.data.imageUrl; 
+    }
+    
+    request();
+  </script>
+</body>
+</html>
